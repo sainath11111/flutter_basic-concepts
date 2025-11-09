@@ -1,0 +1,74 @@
+A button in Flutter is a widget used to perform an action when the user taps or clicks it.
+Buttons are interactive elements that respond to touch — like submitting a form, navigating to another page, or showing a message.
+
+Marathi:
+Button हा Flutter मधील एक widget आहे जो वापरकर्ता दाबल्यावर (tap किंवा click केल्यावर) काही action म्हणजे कार्य करतो.
+उदा. — फॉर्म सबमिट करणे, नवीन पेजवर जाणे, मेसेज दाखवणे इत्यादी.
+
+🧩 Common Button Types in Flutter (Flutter मधील प्रमुख बटणांचे प्रकार)
+Button Type	Description (English)	स्पष्टीकरण (Marathi)
+1. ElevatedButton	A button with a 3D raised effect — usually used for primary actions.	उंच दिसणारे बटण (थोडे वर आलेले), मुख्य कामांसाठी वापरले जाते.
+2. TextButton	A flat button without any elevation — used for less important actions.	सपाट बटण ज्याला उंची नसते; कमी महत्वाच्या कामांसाठी वापरले जाते.
+3. OutlinedButton	A button with a border outline, no fill color.	बाहेरील बॉर्डर असलेले पण आत रंग नसलेले बटण.
+4. IconButton	A button that contains only an icon (no text).	फक्त icon (चिन्ह) असलेले बटण.
+5. FloatingActionButton (FAB)	A circular button that floats above the content — used for main action (like add, edit).	स्क्रीनवर तरंगणारे गोल बटण, मुख्य कार्यांसाठी वापरले जाते (उदा. Add, Edit).
+6. DropdownButton	Used to select one value from a list.	यादीतून एक पर्याय निवडण्यासाठी वापरले जाणारे बटण.
+7. PopupMenuButton	Shows a menu of options when tapped.	टॅप केल्यावर मेनू पर्याय दाखवते.
+8. IconTextButton (Custom)	A combination of Icon + Text, usually created manually.	Icon आणि Text दोन्ही असलेले बटण, साधारणपणे आपण स्वतः तयार करतो.
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: Text("Flutter Buttons Example")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            // Elevated Button
+            ElevatedButton(
+              onPressed: () {
+                print("Elevated Button Pressed");
+              },
+              child: Text("Elevated Button"),
+            ),
+
+            // Text Button
+            TextButton(
+              onPressed: () {
+                print("Text Button Pressed");
+              },
+              child: Text("Text Button"),
+            ),
+
+            // Outlined Button
+            OutlinedButton(
+              onPressed: () {
+                print("Outlined Button Pressed");
+              },
+              child: Text("Outlined Button"),
+            ),
+
+            // Icon Button
+            IconButton(
+              icon: Icon(Icons.favorite, color: Colors.red),
+              onPressed: () {
+                print("Icon Button Pressed");
+              },
+            ),
+
+            // Floating Action Button
+            FloatingActionButton(
+              onPressed: () {
+                print("FAB Pressed");
+              },
+              child: Icon(Icons.add),
+            ),
+          ],
+        ),
+      ),
+    ),
+  ));
+}

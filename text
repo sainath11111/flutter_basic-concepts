@@ -1,0 +1,69 @@
+The Text widget in Flutter is used to display a string of text (words, sentences, numbers) on the screen.
+It is one of the most basic and commonly used widgets in Flutter UI development.
+You can style text using properties like font size, color, font weight, alignment, letter spacing, decoration, etc.
+
+Marathi:
+Flutter मधील Text widget हे स्क्रीनवर मजकूर (text) दाखवण्यासाठी वापरले जाते.
+हे Flutter मधील सर्वात महत्त्वाचे आणि मूलभूत widget आहे.
+यात आपण font size, color, weight, alignment, spacing, decoration इत्यादी गुणधर्म वापरून मजकूर सुंदरपणे दाखवू शकतो.
+
+Text(
+  'Hello Flutter!',
+)
+
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: Text("Text Widget Example")),
+      body: Center(
+        child: Text(
+          'Welcome to Flutter!',
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.blue,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2,
+            wordSpacing: 5,
+            fontStyle: FontStyle.italic,
+            decoration: TextDecoration.underline,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    ),
+  ));
+}
+
+📘 Explanation of Properties (गुणधर्मांचे स्पष्टीकरण)
+Property	Description (English)	स्पष्टीकरण (Marathi)
+data	The text string to display.	दाखवायचा मजकूर.
+style	Defines font, color, weight, size, spacing, etc.	फॉन्ट, रंग, आकार, वजन, अंतर इत्यादी ठरवते.
+textAlign	Aligns text: left, right, center, justify.	मजकूर कुठे ठेवायचा: डावीकडे, उजवीकडे, मध्यभागी किंवा पूर्ण पसरवून.
+maxLines	Limits number of lines shown.	किती ओळीपर्यंत मजकूर दिसावा हे ठरवते.
+overflow	Handles overflow text (e.g. ellipsis “...”).	मजकूर जास्त झाल्यास कसा दाखवायचा (उदा. ...).
+softWrap	Breaks text into next line when needed.	गरज असेल तेव्हा मजकूर पुढच्या ओळीत नेतो.
+textDirection	Sets direction (ltr or rtl).	मजकूराचा दिशा (डावीकडून उजवीकडे किंवा उलट).
+
+
+✨ TextStyle Properties (Text सजवण्यासाठी वापरले जाणारे गुणधर्म)
+Property	English Meaning	Marathi अर्थ
+color	Text color	मजकूराचा रंग
+fontSize	Size of the text	मजकूराचा आकार
+fontWeight	Boldness (e.g. FontWeight.bold)	जाडी (उदा. ठळक मजकूर)
+fontStyle	Italic or normal	तिरपा किंवा सरळ मजकूर
+letterSpacing	Space between letters	अक्षरांमधील अंतर
+wordSpacing	Space between words	शब्दांमधील अंतर
+decoration	Underline, overline, lineThrough	रेषा (खाली, वर, मधून)
+backgroundColor	Background color of text	मजकूराच्या मागे रंग
+
+🧠 Example with Multiple Lines:
+Text(
+  'Flutter makes app development fast and easy.\nLearn once, build anywhere!',
+  style: TextStyle(fontSize: 18, color: Colors.green),
+  textAlign: TextAlign.center,
+  maxLines: 2,
+  overflow: TextOverflow.ellipsis,
+)

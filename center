@@ -1,0 +1,26 @@
+The Center widget in Flutter is used to align its child widget at the center of the available space — both horizontally and vertically.
+It doesn’t add color, border, or size by itself — it just positions its child in the middle.
+
+Marathi:
+Center widget हे Flutter मधील एक widget आहे जे त्याच्या child widget ला पूर्ण स्क्रीनच्या मध्यभागी ठेवते — म्हणजेच आडवे (horizontally) आणि उभे (vertically) दोन्ही बाजूंनी मध्यभागी.
+हे स्वतः रंग, बॉर्डर किंवा आकार देत नाही — फक्त स्थान ठरवते.
+
+
+Center(
+  child: WidgetName(),
+)
+
+import 'package:flutter/material.dart'; 
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      body: Center(
+        child: Text(
+          'Centered Text',
+          style: TextStyle(fontSize: 24, color: Colors.blue),
+        ),
+      ),
+    ),
+  ));
+}

@@ -1,0 +1,10 @@
+🧠 Explanation (Line by Line)
+Line	English Explanation	Marathi Meaning
+import 'package:flutter/material.dart';	Imports Flutter’s material design library (for UI widgets like buttons, text, etc.)	Flutter चे UI बनवण्यासाठी लागणारे widgets import करतो
+void main() { runApp(MyApp()); }	The app starts here — runApp() tells Flutter to start your app with the given widget.	इथून ॲप सुरू होते — runApp() Flutter ला सांगतो कोणता widget मुख्य आहे
+class MyApp extends StatelessWidget	The root widget of your app — everything starts from here.	हा ॲपचा मुख्य widget आहे — इथून इतर सर्व widgets येतात
+MaterialApp()	Wraps your whole app, provides navigation, theme, etc.	पूर्ण ॲप साठी theme, navigation आणि structure देते
+Scaffold()	Gives the basic visual structure like AppBar, Body, Floating Button, Drawer.	AppBar, Body, इत्यादीसाठी बेसिक स्ट्रक्चर देते
+AppBar()	Top bar of the app.	ॲपचा वरचा भाग
+Center()	Centers the child widget.	मध्यभागी ठेवतो
+Text()	Displays text on screen.	स्क्रीनवर मजकूर दाखवतो
