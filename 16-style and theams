@@ -1,0 +1,54 @@
+🔶 2) THEME म्हणजे काय?
+
+Theme → पूर्ण app चा look & feel control करते
+उदा:
+
+default font
+
+default color
+
+app bar style
+
+button style
+
+background color
+
+MaterialApp(
+  theme: ThemeData(
+    fontFamily: "Poppins",
+    primaryColor: Colors.blue,
+    scaffoldBackgroundColor: Colors.white,
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.blue,
+      titleTextStyle: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
+      ),
+    ),
+    textTheme: TextTheme(
+      bodyLarge: TextStyle(fontSize: 18, color: Colors.black),
+      bodyMedium: TextStyle(fontSize: 16),
+    ),
+  ),
+  home: HomePage(),
+);
+
+| Property                | Description                |
+| ----------------------- | -------------------------- |
+| primaryColor            | main color                 |
+| scaffoldBackgroundColor | screen background          |
+| textTheme               | सर्व Text चे default style |
+| appBarTheme             | appbar चे design           |
+| iconTheme               | icons चे रंग/size          |
+| buttonTheme             | default buttons style      |
+| cardTheme               | card widgets चे design     |
+| elevatedButtonTheme     | ElevatedButton चे style    |
+| inputDecorationTheme    | TextField design           |
+
+
+types:
+1theme: ThemeData.light(),
+2theme: ThemeData.dark(),
+3theme: ThemeData.from(colorScheme: ColorScheme.dark()),
+themeMode: ThemeMode.system,   // mobile च्या setting नुसार theme बदलतो

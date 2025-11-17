@@ -1,0 +1,23 @@
+your_project/
+ └─ assets/
+     └─ fonts/
+         └─ Poppins-Regular.ttf
+
+✅ 3) pubspec.yaml मध्ये Font declare करा
+flutter:
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+Text(
+  "Hello Flutter!",
+  style: TextStyle(fontFamily: "Poppins"),
+)
+
+🔷 Method 2: App-wide Theme मध्ये (संपूर्ण ॲपला Font लावण्यासाठी)
+MaterialApp(
+  theme: ThemeData(
+    fontFamily: "Poppins",
+  ),
+  home: HomePage(),
+);

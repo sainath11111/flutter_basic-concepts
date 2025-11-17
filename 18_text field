@@ -1,0 +1,313 @@
+//text fild
+TextField हा Flutter मधील असा widget आहे ज्याद्वारे user कडून input घेतला जातो.
+उदा. — नाव, ईमेल, पासवर्ड, नंबर, सर्च बार इत्यादी.
+| Feature        | Description                                 |
+| -------------- | ------------------------------------------- |
+| `decoration`   | TextField ला border, label, hint देण्यासाठी |
+| `controller`   | TextField मधील value मिळवण्यासाठी           |
+| `keyboardType` | Input चा प्रकार उदा. number, email          |
+| `obscureText`  | Password hide करण्यासाठी                    |
+| `onChanged`    | User टाईप करताच value मिळवते                |
+| `onSubmitted`  | Keyboard मधील Done दाबल्यावर value मिळते    |
+
+
+example:
+TextField(
+  decoration: InputDecoration(
+    labelText: "Enter your name",
+    hintText: "Type here",
+    border: OutlineInputBorder(),
+  ),
+)
+
+all text TextField:
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TextFieldDemo(),
+    );
+  }
+}
+
+class TextFieldDemo extends StatefulWidget {
+  @override
+  State<TextFieldDemo> createState() => _TextFieldDemoState();
+}
+
+class _TextFieldDemoState extends State<TextFieldDemo> {
+  // Controllers
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("All TextField Examples"),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+
+            // 1️⃣ Basic TextField
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Basic TextField",
+                hintText: "Enter something",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // 2️⃣ Using Controller
+            TextField(
+              controller: nameController,
+              decoration: InputDecoration(
+                labelText: "Name",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // 3️⃣ Email Keyboard
+            TextField(
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: "Email Address",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // 4️⃣ Number Keyboard
+            TextField(
+              controller: phoneController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Phone Number",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // 5️⃣ Password Field (obscureText)
+            TextField(
+              controller: passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // 6️⃣ TextField with Icon
+            TextField(
+              controller: searchController,
+              decoration: InputDecoration(
+                labelText: "Search",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // 7️⃣ OnChange event
+            TextField(
+              onChanged: (value) {
+                print("User is typing: $value");
+              },
+              decoration: InputDecoration(
+                labelText: "OnChange Example",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            // 8️⃣ OnSubmit event
+            TextField(
+              onSubmitted: (value) {
+                print("Submitted Value: $value");
+              },
+              decoration: InputDecoration(
+                labelText: "OnSubmit Example",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 30),
+
+            // Button to show controller values
+            ElevatedButton(
+              onPressed: () {
+                print("Name: ${nameController.text}");
+                print("Email: ${emailController.text}");
+                print("Phone: ${phoneController.text}");
+                print("Password: ${passwordController.text}");
+                print("Search: ${searchController.text}");
+              },
+              child: Text("Print All TextField Values"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+using text controller show all text field value on button click.
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TextFieldDemo(),
+    );
+  }
+}
+
+class TextFieldDemo extends StatefulWidget {
+  @override
+  State<TextFieldDemo> createState() => _TextFieldDemoState();
+}
+
+class _TextFieldDemoState extends State<TextFieldDemo> {
+
+  // Controllers
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
+
+  String allData = "";  // To show result
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("All TextField Examples"),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Basic TextField",
+                hintText: "Enter something",
+                border: OutlineInputBorder(),
+                suffix: Icon(Icons.text_fields),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            TextField(
+              controller: nameController,
+              decoration: InputDecoration(
+                labelText: "Name",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            TextField(
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: "Email Address",
+                border: OutlineInputBorder(),
+                prefix: Icon(Icons.email),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            TextField(
+              controller: phoneController,
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: "Phone Number",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            TextField(
+              controller: passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+
+            TextField(
+              controller: searchController,
+              decoration: InputDecoration(
+                labelText: "Search",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 30),
+
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  allData =
+                      "Name: ${nameController.text}\n"
+                      "Email: ${emailController.text}\n"
+                      "Phone: ${phoneController.text}\n"
+                      "Password: ${passwordController.text}\n"
+                      "Search: ${searchController.text}";
+                });
+              },
+              child: Text("Show All Data"),
+            ),
+
+            SizedBox(height: 30),
+
+            // Show Output
+            if (allData.isNotEmpty)
+              Card(
+                elevation: 5,
+                color: Colors.blue.shade50,
+                child: Padding(
+                  padding: EdgeInsets.all(16),
+                  child: Text(
+                    allData,
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+x

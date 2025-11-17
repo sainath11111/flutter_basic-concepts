@@ -1,0 +1,143 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Container Example",
+          style: TextStyle(fontSize: 22, color: Colors.purple),
+        ),
+      ),
+
+      body: SingleChildScrollView(   // ✅ Scroll added
+        child: Container(
+          width: double.infinity,
+          
+
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+
+              SizedBox(height: 30),
+
+              // 1️⃣ Default borderRadius
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: Colors.yellow,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(width: 4, color: Colors.pink),
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              // 2️⃣ BorderRadius.only
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 2, 32, 56),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    bottomRight: Radius.elliptical(33,22),
+                  ),
+                  border: Border.all(width: 4, color: Colors.black),
+                boxShadow:[
+                  BoxShadow(blurRadius:50,spreadRadius: 10,color: Colors.grey)
+                ]
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              // 3️⃣ BorderRadius.horizontal
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.horizontal(
+                    left: Radius.circular(40),
+                    right: Radius.circular(10),
+                  ),
+                  border: Border.all(width: 4, color: Colors.blue),
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              // 4️⃣ BorderRadius.vertical
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(50),
+                    bottom: Radius.circular(5),
+                  ),
+                  border: Border.all(width: 4, color: Colors.brown),
+                ),
+              ),
+
+              SizedBox(height: 20),
+
+              // 5️⃣ Full circular (circle)
+              Container(
+                width: 120,
+                height: 120,
+                decoration: BoxDecoration(
+                  color: Colors.lightBlue,
+                  shape: BoxShape.circle,//shape property used for circle
+                  border: Border.all(width: 4, color: Colors.deepPurple),
+                ),
+              ),
+
+              SizedBox(height: 30),
+            ],
+          ),
+        ),
+      ),
+    ),
+  ));
+}
+
+🌟 FULL SUMMARY CHART — Decoration in Flutter
+🟩 1. BorderRadius Summary
+BorderRadius Type	Meaning (English)	Meaning (Marathi)
+BorderRadius.circular(20)	All corners rounded equally	सर्व कोपरे समान गोल
+BorderRadius.only()	Customize specific corners	वेगवेगळ्या कोपऱ्यांना वेगळा radius
+BorderRadius.all()	Same radius on all corners	सर्व कोपऱ्यांना एकच radius
+BorderRadius.vertical()	Top & bottom corners rounded	वरचे / खालील कोपरे
+BorderRadius.horizontal()	Left & right corners rounded	डावे / उजवे कोपरे
+BorderRadius.zero	No rounding	कोणताही radius नाही
+🟩 2. BoxDecoration Properties
+🟦 2. Border Summary
+Border Type	Meaning (English)	Meaning (Marathi)
+Border.all()	Same border on all sides	सर्व बाजूंना समान बॉर्डर
+Border(top: ...)	Only top border	फक्त वर बॉर्डर
+Border(bottom: ...)	Only bottom border	फक्त खाली बॉर्डर
+Border(left: ...)	Only left border	फक्त डावीकडील बॉर्डर
+Border(right: ...)	Only right border	फक्त उजवीकडील बॉर्डर
+Border(…) – mixed	Different colors/sizes per side	प्रत्येक बाजू वेगळी
+DottedBorder()	Dashed/dotted border (package)	ठिपक्यांची/डॅशची बॉर्डर
+
+🟧 3. Shadow Summary (BoxShadow)
+Shadow Property	Meaning (English)	Meaning (Marathi)
+color:	Shadow color	सावलीचा रंग
+blurRadius:	Softness / spread amount	सावली किती पसरावी
+spreadRadius:	Size of shadow area	सावलीचे क्षेत्र किती वाढेल
+offset: Offset(x, y)	Shadow direction	सावलीची दिशा
+Offset(5,5)	Down + right shadow	खाली + उजवीकडे सावली
+Offset(-5,-5)	Up + left shadow	वर + डावीकडे सावली
+🟧 3. Shadow Summary (BoxShadow)
+Shadow Property	Meaning (English)	Meaning (Marathi)
+color:	Shadow color	सावलीचा रंग
+blurRadius:	Softness / spread amount	सावली किती पसरावी
+spreadRadius:	Size of shadow area	सावलीचे क्षेत्र किती वाढेल
+offset: Offset(x, y)	Shadow direction	सावलीची दिशा
+Offset(5,5)	Down + right shadow	खाली + उजवीकडे सावली
+Offset(-5,-5)	Up + left shadow	वर + डावीकडे सावली

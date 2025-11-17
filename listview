@@ -1,0 +1,38 @@
+✅ 1. What is ListView.builder?
+👉 English:
+
+ListView.builder is a widget that creates a scrollable list.
+It builds items only when they are visible, so it is faster for long lists.
+
+ListView.builder(
+  itemCount: 10,   // किती items हवेत
+  itemBuilder: (context, index) {
+    return ListTile(
+      title: Text("Item $index"),
+    );
+  },
+);
+
+✅ 1. What is ListView.separated?
+👉 English:
+
+ListView.separated creates a list where you can add a separator (divider, spacing, line) between each item.
+
+ListView.separated(
+  itemCount: 5,
+  itemBuilder: (context, index) {
+    return ListTile(
+      leading: Icon(Icons.person),
+      title: Text("Name $index"),
+      subtitle: Text("Subtitle $index"),
+      trailing: Icon(Icons.arrow_forward_ios),
+      onTap: () {},
+    );
+  },
+  separatorBuilder: (context, index) {
+    return Divider(
+      thickness: 1,
+      color: Colors.grey,
+    );
+  },
+);

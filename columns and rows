@@ -1,0 +1,56 @@
+In Flutter, Column and Row are layout widgets used to arrange multiple child widgets vertically or horizontally.
+
+syntax
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.start,
+  children: [
+    Text('Hello'),
+    Text('Flutter'),
+    Icon(Icons.star),
+  ],
+)
+| Property               | Description                                                           |
+| ---------------------- | --------------------------------------------------------------------- |
+| **children**           | List of widgets to display vertically.                                |
+| **mainAxisAlignment**  | Controls vertical alignment (top, center, bottom, spaceAround, etc.). |
+| **crossAxisAlignment** | Controls horizontal alignment (start, center, end, stretch).          |
+| **mainAxisSize**       | Defines how much vertical space the Column takes (min or max).        |
+
+Column(
+  mainAxisAlignment: MainAxisAlignment.center,
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+    Text('Welcome'),
+    Icon(Icons.favorite, color: Colors.red),
+    ElevatedButton(onPressed: () {}, child: Text('Click Me')),
+  ],
+)
+
+The Row widget arranges its children horizontally (from left to right).
+
+Row(
+  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  crossAxisAlignment: CrossAxisAlignment.center,
+  children: [
+    Icon(Icons.home),
+    Icon(Icons.search),
+    Icon(Icons.settings),
+  ],
+)
+
+combination both
+Column(
+  children: [
+    Text('Top Section'),
+    Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(Icons.star, color: Colors.yellow),
+        Icon(Icons.star, color: Colors.yellow),
+        Icon(Icons.star, color: Colors.yellow),
+      ],
+    ),
+    Text('Bottom Section'),
+  ],
+)

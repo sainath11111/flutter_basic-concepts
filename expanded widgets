@@ -1,0 +1,59 @@
+Expanded Widget — Explained (English + Marathi)
+🔹 What is Expanded Widget? (English)
+
+Expanded is a Flutter widget used inside Row, Column, or Flex.
+It helps a child widget take up the available remaining space.
+
+✓ Why do we use Expanded? (का वापरतो?)
+👉 English
+
+To distribute space between widgets
+
+To avoid overflow
+
+To make responsive UI
+
+To control space using flex
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Container Example",
+          style: TextStyle(fontSize: 22, color: Colors.purple),
+        ),
+      ),
+
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+
+         Expanded(
+           child: Container(
+            width: 50,
+            height: 50,
+            color: Colors.red,
+          ),),
+Expanded(
+  child:Container(
+            width: 30,
+            height: 30,
+            color: Colors.green,
+          ),
+),
+
+          Expanded(
+            flex:6,//flex value to take more space
+            child: Container(
+              height: 30,
+              color: const Color.fromARGB(255, 147, 170, 147),
+            ),
+          ),
+        ],
+      ),
+    ),
+  ));
+}

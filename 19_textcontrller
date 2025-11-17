@@ -1,0 +1,20 @@
+✅ 1. Controller कसा create करायचा?
+final TextEditingController nameController = TextEditingController();
+
+TextField(
+  controller: nameController,
+  decoration: InputDecoration(
+    labelText: "Enter Name",
+    border: OutlineInputBorder(),
+  ),
+)
+
+✅ 3. Controller मधून value कशी मिळवायची (store/get)
+👉 Button वर क्लिक केल्यावर
+ElevatedButton(
+  onPressed: () {
+    String name = nameController.text;
+    print("Entered Name: $name");
+  },
+  child: Text("Submit"),
+)

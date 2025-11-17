@@ -1,0 +1,66 @@
+✅ 1. What is Padding?
+
+Padding means space inside a widget — between the widget's border and its child.
+Padding creates inner spacing.
+Container(
+  padding: EdgeInsets.all(20),
+  color: Colors.blue,
+  child: Text("Hello Padding"),
+)
+✅ 2. What is Margin?
+
+Margin means space outside the widget — between the widget and other widgets.
+Margin creates outer spacing.
+
+Container(
+  margin: EdgeInsets.all(20),
+  color: Colors.red,
+  child: Text("Hello Margin"),
+)
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Container Example",
+            style: TextStyle(fontSize: 22, color: Colors.purple),
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "This is a simple container example in Flutter.",
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 20),
+              Container(
+                color: Colors.blueAccent,
+                width: double.infinity,
+                height: 100,
+                child: Center(
+                  child: Text(
+                    "Hello, Container!",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+type
+
+padding: EdgeInsets.all(10)
+padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10)
+margin: EdgeInsets.only(left: 15, top: 10)
