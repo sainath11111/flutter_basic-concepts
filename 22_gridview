@@ -1,0 +1,52 @@
+1️⃣ GridView.count
+
+GridView.count(
+  crossAxisCount: 2, // 2 columns
+  crossAxisSpacing: 10,
+  mainAxisSpacing: 10,
+  children: List.generate(8, (index) {
+    return Container(
+      color: Colors.blue,
+      child: Center(
+        child: Text("Item $index"),
+      ),
+    );
+  }),
+)
+
+2️⃣ GridView.extent
+
+तुम्हाला प्रत्येक tile ची max-width द्यायची असेल तर extent वापरा.
+
+GridView.extent(
+  maxCrossAxisExtent: 150,
+  children: List.generate(10, (index) {
+    return Container(
+      color: Colors.green,
+      child: Center(child: Text("Item $index")),
+    );
+  }),
+)
+
+3️⃣ GridView.builder
+
+Dynamic data list साठी सर्वात जास्त वापरला जाणारा प्रकार.
+Large data साठी perfect कारण lazy loading होते.
+
+GridView.builder(
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(//
+    crossAxisCount: 3,
+    crossAxisSpacing: 10,
+    mainAxisSpacing: 10,
+  ),
+  itemCount: 50,
+  itemBuilder: (context, index) {
+    return Container(
+      color: Colors.orange,
+      child: Center(
+        child: Text("Item $index"),
+      ),
+    );
+  },
+)
+

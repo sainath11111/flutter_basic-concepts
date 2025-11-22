@@ -1,0 +1,20 @@
+//icon widget in flutter
+Icon(
+  Icons.home,
+  color: Colors.blue,
+  size: 30,
+)
+
+| Property          | Description (English)      | Marathi Meaning  |
+| ----------------- | -------------------------- | ---------------- |
+| **icon**          | कोणता icon दाखवायचा        | आयकॉन निवडा      |
+| **color**         | रंग सेट करतो               | रंग देतो         |
+| **size**          | icon ची size               | आयकॉनचा आकार     |
+| **semanticLabel** | Accessibility साठी टेक्स्ट | वाचण्यासाठी लेबल |
+| **textDirection** | RTL / LTR                  | टेक्स्ट दिशा     |
+
+Icon(Icons.search)
+Icon(Icons.person)
+Icon(Icons.add)
+Icon(Icons.favorite)
+Icon(Icons.settings)

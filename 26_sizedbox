@@ -1,0 +1,23 @@
+A SizedBox is a widget used to give fixed height, width, or empty space between widgets.
+
+| Purpose                        | Explanation                       |
+| ------------------------------ | --------------------------------- |
+| Give space between widgets     | SizedBox(height / width)          |
+| Force a widget to a fixed size | SizedBox(height: 100, width: 100) |
+| Make an empty box              | SizedBox.shrink()                 |
+| Make widget take full width    | SizedBox.expand()                 |
+
+ex:
+Column(
+  children: [
+    Text("Hello"),
+    SizedBox(height: 20), // space of 20 pixels
+    Text("World"),
+  ],
+)
+
+full scewwn width
+SizedBox.expand(
+  child: Container(color: Colors.green),
+)
+

@@ -1,0 +1,17 @@
+⭐ What is a Custom Widget?
+
+A custom widget is your own widget created by combining Flutter widgets (Container, Row, Text, etc.) so it can be reused anywhere.
+
+tyeps:
+Stateless Custom Widget
+
+Stateful Custom Widget
+
+| Feature           | StatelessWidget | StatefulWidget               |
+| ----------------- | --------------- | ---------------------------- |
+| UI changes        | ❌ No            | ✔ Yes                        |
+| setState()        | ❌ Not used      | ✔ Used                       |
+| Stores state/data | ❌ No            | ✔ Yes                        |
+| Lifecycle         | Simple          | Complex (initState, dispose) |
+| Performance       | Faster          | Slightly slower              |
+| Good for          | Static UI       | Dynamic UI                   |

@@ -1,0 +1,43 @@
+A Wrap widget arranges its children horizontally or vertically and automatically moves extra items to the next line when there is no more space.
+
+when use this?
+| Situation        | Wrap योग्य का आहे?                          |
+| ---------------- | ------------------------------------------- |
+| Text Chips, Tags | जागा संपली तर पुढच्या ओळीत जातात            |
+| Responsive UI    | स्क्रीन लहान/मोठी झाली तरी layout तुटत नाही |
+| Dynamic items    | children कितीही वाढले तरी overflow होत नाही |
+
+| Property       | Meaning                       |
+| -------------- | ----------------------------- |
+| `direction`    | horizontal OR vertical        |
+| `spacing`      | gap between items (main axis) |
+| `runSpacing`   | gap between lines             |
+| `alignment`    | alignment of items            |
+| `runAlignment` | alignment of rows             |
+
+Example
+Wrap(
+  spacing: 10,
+  runSpacing: 10,
+  children: [
+    Chip(label: Text("Flutter")),
+    Chip(label: Text("Dart")),
+    Chip(label: Text("Java")),
+    Chip(label: Text("Python")),
+    Chip(label: Text("C++")),
+  ],
+)
+
+
+direction: Axis.horizontal,
+Wrap(
+  direction: Axis.vertical,
+  spacing: 10,
+  runSpacing: 10,
+  children: [
+    Icon(Icons.star, size: 40),
+    Icon(Icons.home, size: 40),
+    Icon(Icons.settings, size: 40),
+    Icon(Icons.person, size: 40),
+  ],
+)

@@ -1,0 +1,22 @@
+RichText widget वापरून आपण एका text मध्ये वेगवेगळी स्टाइल, रंग, size, weight देऊ शकतो. म्हणजे एकाच वाक्यात काही शब्द bold, काही red, काही italic असे दाखवता येतात.
+RichText(
+  text: TextSpan(
+    text: 'Hello ',
+    style: TextStyle(color: Colors.black, fontSize: 20),//default style for whole text
+    children: <TextSpan>[
+      TextSpan(
+          text: 'bold',
+          style: TextStyle(fontWeight: FontWeight.bold)),//overriding style for 'bold'
+      TextSpan(
+          text: ' and ',
+          style: TextStyle(color: Colors.black)),
+      TextSpan(
+          text: 'red',
+          style: TextStyle(color: Colors.red)),
+      TextSpan(
+          text: ' text.',
+          style: TextStyle(color: Colors.black)),
+    ],
+  ),
+)
+

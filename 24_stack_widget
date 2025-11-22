@@ -1,0 +1,59 @@
+🔹 What is Stack in Flutter? (English)
+
+The Stack widget is used to place widgets on top of each other.
+It works like layers — the first widget is at the bottom, and the next widgets are placed above it.
+
+📌 Where is Stack used? (कुठे वापरतात?)
+
+Profile picture + edit button
+
+Background image + text on top
+
+Icon on top of image
+
+Badge on icons
+
+Creating custom UI designs
+
+Overlapping widgets
+
+properties:
+1️⃣ alignment
+
+Child widgets कुठे दिसतील ते ठरवते
+
+Example: Alignment.topCenter, Alignment.bottomRight
+
+2️⃣ fit
+
+Stack ला त्याच्या parent च्या size प्रमाणे adjust करायला सांगते
+
+StackFit.loose (default)
+
+StackFit.expand (full screen expand)
+
+3️⃣ clipBehavior
+
+Overflow झाल्यास clip करायचे का?
+
+Clip.hardEdge, Clip.none
+
+Stack(
+  children: [
+    Container(
+      width: 200,
+      height: 200,
+      color: Colors.blue,
+    ),
+    Container(
+      width: 150,
+      height: 150,
+      color: Colors.yellow,
+    ),
+    Container(
+      width: 100,
+      height: 100,
+      color: Colors.red,
+    ),
+  ],
+)
