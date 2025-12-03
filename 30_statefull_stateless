@@ -1,0 +1,21 @@
+🟦 1. Stateless Widget (बदल न होणारे Widgets)
+👉 Definition (English)
+
+A Stateless Widget is a widget that does not change over time.
+Its UI stays the same unless external data changes or the widget is rebuilt.
+
+👉 Example of Stateless Widgets
+
+Text
+
+Icon
+
+Image
+
+RaisedButton (without dynamic behavior)
+
+👉 Definition (English)
+
+A Stateful Widget is a widget that can change its UI based on user interaction or data changes.
+It can update using setState().
+

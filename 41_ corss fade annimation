@@ -1,0 +1,71 @@
+तुम्हाला CrossFade Animation म्हणजे दोन widgets हळूहळू एकमेकांमध्ये fade होणे — यासाठी Flutter मध्ये AnimatedCrossFade widget वापरतात.
+
+✅ AnimatedCrossFade समजावणी
+
+दोन Widgets देतो → firstChild आणि secondChild
+
+कोणता दिसणार किंवा fade होणार ते → crossFadeState
+
+Animation ची वेळ → duration
+
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: CrossFadeDemo(),
+  ));
+}
+
+class CrossFadeDemo extends StatefulWidget {
+  @override
+  _CrossFadeDemoState createState() => _CrossFadeDemoState();
+}
+
+class _CrossFadeDemoState extends State<CrossFadeDemo> {
+  bool showFirst = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("CrossFade Animation Example")),
+      body: Center(
+        child: AnimatedCrossFade(
+          firstChild: Container(
+            width: 200,
+            height: 200,
+            color: Colors.blue,
+            alignment: Alignment.center,
+            child: Text(
+              "First",
+              style: TextStyle(color: Colors.white, fontSize: 24),
+            ),
+          ),
+          secondChild: Container(
+            width: 200,
+            height: 200,
+            color: Colors.red,
+            alignment: Alignment.center,
+            child: Text(
+              "Second",
+              style: TextStyle(color: Colors.white, fontSize: 24),
+            ),
+          ),
+          crossFadeState: showFirst
+              ? CrossFadeState.showFirst
+              : CrossFadeState.showSecond,
+          duration: Duration(seconds: 1),
+        ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            showFirst = !showFirst; // दोन्ही Widgets बदलायला
+          });
+        },
+        child: Icon(Icons.swap_horiz),
+      ),
+    );
+  }
+}

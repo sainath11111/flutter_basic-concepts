@@ -1,0 +1,54 @@
+ChatGPT said:Flutter मध्ये एका स्क्रीनवरून दुसऱ्या स्क्रीनवर जाणे (Navigation) खूप सोपं आहे. खाली मी तुम्हाला पूर्ण समजावून सांगतो — push, pop, pushReplacement, pushNamed, आणि arguments सह navigation.
+
+import 'package:flutter/material.dart';
+import 'second_screen.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: HomeScreen(),
+  ));
+}
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Home Screen")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SecondScreen()),
+            );
+          },
+          child: Text("Go to Second Screen"),
+        ),
+      ),
+    );
+  }
+}
+
+
+second screen.dart:
+
+import 'package:flutter/material.dart';
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Second Screen")),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text("Go Back"),
+        ),
+      ),
+    );
+  }
+}
+
+back scree la jaichya sathi Navigator.pop(context) vaparla jato. he current screen la stack madhun kadun tyachya agodaril screen var parat jaun deto.  }

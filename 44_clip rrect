@@ -1,0 +1,48 @@
+🟦 ClipRRect म्हणजे काय?
+
+ClipRRect = Clip + Rounded Rectangle
+हा widget तुमच्या child widget ला एका rounded rectangle मध्ये cut करतो. म्हणजेच, कोपरे गोल दिसतात.
+
+🟩 मुख्य Properties
+Property	Description
+borderRadius	कोपरे किती गोल हवे आहेत
+clipBehavior	clipping कसे करायचे (default hardEdge)
+child	ज्याला आपण clip करणार आहोत
+
+ClipRRect(
+  borderRadius: BorderRadius.circular(20),
+  child: Image.network(
+    'https://picsum.photos/200',
+    width: 200,
+    height: 200,
+    fit: BoxFit.cover,
+  ),
+)
+)
+
+✔ यामुळे image चे corners गोल दिसतील.
+
+🟨 Only काही कोपरे गोल करायचे असल्यास
+ClipRRect(
+  borderRadius: BorderRadius.only(
+    topLeft: Radius.circular(20),
+    bottomRight: Radius.circular(20),
+  ),
+  child: Image.network(
+    'https://picsum.photos/200',
+    width: 200,
+    height: 200,
+    fit: BoxFit.cover,
+  ),
+)
+
+full circular borderRadius वापरल्यास सर्व कोपरे गोल होतील.
+ClipRRect(
+  borderRadius: BorderRadius.circular(100),
+  child: Image.network(
+    'https://picsum.photos/200',
+    width: 200,
+    height: 200,
+    fit: BoxFit.cover,
+  ),
+)

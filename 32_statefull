@@ -1,0 +1,31 @@
+import 'package:flutter/material.dart';
+
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int count = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("setState Example")),
+      body: Center(
+        child: Text(
+          "$count",
+          style: TextStyle(fontSize: 40),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {// 🔴 setState कॉल → Flutter ला सांगतो की UI अपडेट करायची आहे build again 
+            count++; // 🟢 value बदलली → UI अपडेट होईल
+          });
+        },
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}

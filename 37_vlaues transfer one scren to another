@@ -1,0 +1,28 @@
+
+second screen :
+
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => SecondScreen(name: "Sainath", age: 22),
+  ),
+);
+
+
+first screen :
+class SecondScreen extends StatelessWidget {
+  final String name;
+  final int age;
+
+  SecondScreen({required this.name, required this.age});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Second Screen")),
+      body: Center(
+        child: Text("Name: $name, Age: $age"),
+      ),
+    );
+  }
+}

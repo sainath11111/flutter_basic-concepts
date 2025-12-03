@@ -1,0 +1,66 @@
+
+import 'package:flutter/material.dart';        // Import Flutter UI framework
+
+// Entry point of the Flutter application
+void main() {
+  runApp(MyApp());                             // Run the MyApp widget
+}
+
+// Root widget of the app (stateless because nothing changes here)
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: AnimatedOpacityDemo(),             // Set home page of the app
+    );
+  }
+}
+
+// StatefulWidget because opacity value will change
+class AnimatedOpacityDemo extends StatefulWidget {
+  @override
+  _AnimatedOpacityDemoState createState() => _AnimatedOpacityDemoState();
+}
+
+class _AnimatedOpacityDemoState extends State<AnimatedOpacityDemo> {
+  
+  // The opacity value that will animate (1.0 = visible, 0.0 = invisible)
+  double _opacity = 1.0;                       
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Animated Opacity")), // AppBar title
+
+      // Main content
+      body: Center(
+        
+        // AnimatedOpacity widget smoothly fades child in/out
+        child: AnimatedOpacity(
+          opacity: _opacity,                   // Current opacity value
+          duration: Duration(seconds: 1),      // Animation time = 1 second
+          curve: Curves.easeInOut,             // Animation smooth easing curve
+
+          // The widget whose opacity will animate
+          child: Container(
+            width: 200,                        // Box width
+            height: 200,                       // Box height
+            color: Colors.blue,                // Box color
+          ),
+        ),
+      ),
+
+      // Floating button to toggle opacity
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {                        // Rebuild UI with new opacity
+            _opacity = (_opacity == 1.0) 
+                ? 0.0                          // If visible → fade out
+                : 1.0;                         // If invisible → fade in
+          });
+        },
+        child: Icon(Icons.visibility),         // Button icon
+      ),
+    );
+  }
+}

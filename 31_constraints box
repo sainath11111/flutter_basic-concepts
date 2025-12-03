@@ -1,0 +1,43 @@
+ChatGPT said:Flutter मधील ConstrainedBox हे widget एखाद्या child widget वर minimum आणि maximum size constraints लावण्यासाठी वापरले जाते.
+खूप साध्या भाषेत :
+📌 ConstrainedBox = Child ला आकाराची मर्यादा देणारे widget
+उदा.: height किमान 100 असावी, जास्तीत जास्त 200 असावी अशा प्रकारे.
+
+✅ ConstrainedBox का वापरतात?
+
+
+Child खूप छोटा दिसत असेल तर त्याला वाढवण्यासाठी
+
+
+Child खूप मोठा होत असेल तर त्याला मर्यादा घालण्यासाठी
+
+
+Layout control मिळवण्यासाठी
+
+
+Responsive UI मध्ये fixed boundaries ठेवण्यासाठी
+
+ConstrainedBox(
+  constraints: BoxConstraints(
+    minWidth: 100,
+    maxWidth: 200,
+    minHeight: 50,
+    maxHeight: 150,
+  ),
+  child: Widget,
+)
+
+
+
+ConstrainedBox(
+  constraints: BoxConstraints(
+    minWidth: 200,
+    minHeight: 100,
+    maxHeight: 150,
+    maxWidth: 300,
+  ),
+  child: Container(
+    color: Colors.blue,
+    child: Text("Hello"),
+  ),
+);

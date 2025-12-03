@@ -1,0 +1,77 @@
+import 'dart:async'; // Imports the async library for using Timer
+import 'package:flutter/material.dart'; // Imports Flutter's material design widgets
+
+void main() {
+  runApp(const MyApp()); // Entry point of the app, runs MyApp widget
+}
+
+class MyApp extends StatelessWidget { // Root widget of the application
+  const MyApp({super.key}); // Constructor with optional key parameter
+
+  @override
+  Widget build(BuildContext context) { // Builds the UI for MyApp
+    return const MaterialApp( // Returns the main MaterialApp widget
+      debugShowCheckedModeBanner: false, // Removes the debug banner in top-right corner
+      home: SplashScreen(), // Sets SplashScreen as the first screen of the app
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget { // Stateful widget for splash screen
+  const SplashScreen({super.key}); // Constructor
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState(); // Creates the widget's state
+}
+
+class _SplashScreenState extends State<SplashScreen> { // State class controlling SplashScreen behavior
+  @override
+  void initState() { // Called when the widget is inserted into the widget tree
+    super.initState(); // Calls parent class's initState
+
+    // Navigate to HomePage after 3 seconds
+    Timer(const Duration(seconds: 3), () { // Creates a timer that runs after 3 seconds
+      if (!mounted) return; // Ensures widget is still active before navigating
+      Navigator.pushReplacement( // Replaces SplashScreen with HomePage
+        context, // Navigation requires context
+        MaterialPageRoute( // Defines the route to navigate to
+          builder: (context) => const HomePage(), // Creates HomePage widget
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) { // Builds the UI for SplashScreen
+    return const Scaffold( // Provides visual structure like background & layout
+      backgroundColor: Colors.blue, // Sets blue background color
+      body: Center( // Centers child widgets in the middle of the screen
+        child: Column( // Arranges children vertically
+          mainAxisAlignment: MainAxisAlignment.center, // Centers items vertically
+          children: [ // List of widgets inside the column
+            Icon(Icons.flutter_dash, size: 100, color: Colors.white), // Flutter logo icon
+            SizedBox(height: 20), // Adds vertical spacing
+            Text(
+              "My Flutter App", // Displayed app title text
+              style: TextStyle(fontSize: 26, color: Colors.white), // Styling text
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget { // Stateless widget representing home screen
+  const HomePage({super.key}); // Constructor
+
+  @override
+  Widget build(BuildContext context) { // Builds HomePage UI
+    return Scaffold( // Provides screen layout
+      appBar: AppBar(title: const Text("Home Page")), // Displays app bar with title
+      body: const Center( // Centers child content
+        child: Text("Welcome to Home Page!"), // Text shown on screen
+      ),
+    );
+  }
+}

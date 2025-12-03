@@ -1,0 +1,78 @@
+ListWheelScrollView हा Flutter मधील एक खास widget आहे ज्यामुळे तुम्ही 3D wheel / carousel style मध्ये list दाखवू शकता. हे Cupertino iOS style सारखे दिसते (जसे date picker, time picker).
+
+हा widget vertical list दाखवतो पण items एका वर्तुळाच्या arc वर फिरत आहेत असे दिसतात.
+
+⭐ ListWheelScrollView का वापरतात?
+
+3D wheel effect हवे असेल
+
+fancy list तयार करायची असेल
+
+picker / selector UI बनवायचा असेल
+
+smooth animation + magnification required असेल
+
+ListWheelScrollView.useDelegate(
+  itemExtent: 70,
+  perspective: 0.005,
+  diameterRatio: 1.5,
+  useMagnifier: true,
+  magnification: 1.2,
+  onSelectedItemChanged: (i) => print("selected: $i"),
+  childDelegate: ListWheelChildBuilderDelegate(
+    builder: (context, index) {
+      return Container(
+        alignment: Alignment.center,
+        child: Text(
+          "Option $index",
+          style: TextStyle(fontSize: 24),
+        ),
+      );
+    },
+    childCount: 20,
+  ),
+)
+
+
+
+map:
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    List<String> names = ["Sainath", "Ajay", "Rohit", "Vishal", "Kunal"];
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("ListWheelScrollView + Map")),
+        body: Center(
+          child: ListWheelScrollView(
+            itemExtent: 80,
+            useMagnifier: true,
+            magnification: 1.2,
+            perspective: 0.005,
+            children: names.map((name) {
+              return Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.blue[100],
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  name,
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+              );
+            }).toList(),
+          ),
+        ),
+      ),
+    );
+  }
+}

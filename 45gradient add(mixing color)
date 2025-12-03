@@ -1,0 +1,138 @@
+✅ 1) Scaffold → Container → BoxDecoration वापरून Gradient Background
+
+तुम्ही संपूर्ण app च्या background ला gradient द्यायचा असेल तर Scaffold च्या body मध्ये Container वापरून Gradient लावता येतो.
+
+//webgradiant.com examples of shadcolors
+
+
+import 'package:flutter/material.dart';
+
+class GradientBGExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Colors.blue,
+              Colors.purple,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
+          child: Text(
+            "Gradient Background App",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+Types:
+LinearGradient(
+  colors: [Colors.red, Colors.blue],
+)
+
+circular gradient:
+RadialGradient(
+  colors: [Colors.yellow, Colors.orange],
+)
+
+SweepGradient(
+  colors: [Colors.green, Colors.blue, Colors.purple],
+)
+
+use begin and end
+
+Container(
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [Colors.blue, Colors.red],
+    ),
+  ),
+);
+
+left to right
+Container(
+  decoration: BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.centerLeft,
+      end: Alignment.centerRight,
+      colors: [Colors.green, Colors.yellow],
+    ),
+  ),
+);
+
+center:
+RadialGradient(
+  center: Alignment.center,
+  colors: [Colors.blue, Colors.white],
+)
+
+
+stop:
+
+LinearGradient(
+  colors: [Colors.red, Colors.green, Colors.blue],
+  stops: [0.0, 0.5, 1.0],
+)
+
+
+✅ 2) Gradient Button बनवण्यासाठी
+तुम्हाला जर gradient button बनवायचा असेल तर ElevatedButton च्या style मध्ये gradient वापरता येतो.
+import 'package:flutter/material.dart';     
+class GradientButtonExample extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            // Gradient background
+            primary: Colors.transparent,
+            shadowColor: Colors.transparent,
+          ).copyWith(
+            backgroundColor: MaterialStateProperty.resolveWith<Color>(
+              (Set<MaterialState> states) {
+                return Colors.transparent;
+              },
+            ),
+          ),
+          onPressed: () {},
+          child: Ink(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.pink, Colors.orange],
+              ),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Container(
+              constraints: BoxConstraints(minWidth: 88, minHeight: 36),
+              alignment: Alignment.center,
+              child: Text(
+                'Gradient Button',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
